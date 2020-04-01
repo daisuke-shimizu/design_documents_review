@@ -1,38 +1,49 @@
 # アプリケーション詳細設計
 ## 全体
+- 使用するgemを記述する。
 
+## public
+## 共通
 - ログイン、サインイン、ログアウトを処理するコントローラが無い。
-- 管理者画面で注文ごとのデータを扱うのであればadmin/ordersコントローラを作成すべき。
-## end_users/
-- 退会の確認する画面と退会後表示する画面のアクションが無い。
-- 退会後表示する画面のアクションが無い。
+## end_users
+- URLにエンドユーザーのidを含んでいるので他のユーザのページにアクセスできてしまう。
+- 退会の確認する画面のアクションが無い。
 
-## end_users/cart_items
+## cart_items
 - URLに/end_users/:end_user_id/を含めずにアクセスできるようにすべき。
-- 注文情報確認の画面のアクションが無い。
+- editアクションが不要。
+- カートを空にするアクションが無い。
 
-## end_users/orders
+
+## orders
 - URLに/end_users/:end_user_id/を含めずにアクセスできるようにすべき。
+- 注文情報確認の画面と注文完了の画面のアクションが無い。
 
-## end_users/order_items
-- createアクションが必要。
+## order_items
 - indexアクションが不要。
 - showアクションが不要。
 
-## end_users/address
+## address
 - URLに/end_users/:end_user_id/を含めずにアクセスできるようにすべき。
 - addressだと単数形なのでaddressesにすべき。
 
 
-## admin/items
-- newアクションのURLはitemsではなくitems/new。
+## admin
+## 共通
+- 管理者画面で注文ごとのデータを扱うのであればadmin/ordersコントローラを作成すべき。
+- ログイン画面のアクションが無い。
 
-## admin/genres
+## items
+- newアクションのURLはitemsではなくitems/new。
+- destroyアクションは不要。
+
+## /genres
 - updateアクションが無い。
 
-## admin/order_details
+## order_details
 - indexアクションが不要。
 - showアクションが不要。
+- updateアクションは注文ステータスの更新ではなく製作
 
 # 注意
 * マークダウン形式で記入してください。
